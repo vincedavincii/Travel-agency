@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import {Routes, Route, BrowserRouter} from "react-router-dom";
+import Nav from "./components/Nav";
+import Toggle from "./components/Toggle";
+import ModalProvider from "./context/providers/ModalProvider";
+import NavProvider from "./context/providers/NavProvider";
+import AboutPage from "./pages/AboutPage";
+import ErrorPage from "./pages/ErrorPage";
+import HomePage from "./pages/HomePage";
+import {HelmetProvider} from "react-helmet-async";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<BrowserRouter>
+			<ModalProvider>
+				<NavProvider>
+					<HelmetProvider>
+						<Toggle />
+						<Nav />
+						<Routes>
+							<Route
+								path="/"
+								element={<HomePage />}
+							/>
+							<Route
+								path="/about"
+								element={<AboutPage />}
+							/>
+							<Route element={<ErrorPage />} />
+						</Routes>
+					</HelmetProvider>
+				</NavProvider>
+			</ModalProvider>
+		</BrowserRouter>
+	);
 }
 
 export default App;

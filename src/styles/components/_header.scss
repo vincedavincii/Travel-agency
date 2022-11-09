@@ -1,0 +1,54 @@
+@use "../abstracts";
+
+.header {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	clip-path: polygon(50% 0%, 100% 0, 100% 91%, 0 100%, 0 99%, 0% 60%, 0 0);
+
+	&_logo {
+		@include abstracts.position(absolute, 3rem, null, 3rem, null, null, null);
+		z-index: 1;
+		img {
+			width: 8rem;
+			height: auto;
+			object-fit: cover;
+		}
+	}
+
+	&-video {
+		@include abstracts.position(absolute, 0, null, 0, null, 100%, 100%);
+		overflow: hidden;
+	}
+
+	&_contents {
+		@include abstracts.position(absolute, 0, null, 0, null, 100%, 100%);
+		background-color: rgba(0, 0, 0, 0.4);
+
+		&_text {
+			@include abstracts.align(flex, center, center, 100vh);
+			&_child {
+				&_h1 {
+					color: abstracts.$white;
+					text-transform: uppercase;
+					font-weight: 900;
+					font-size: 3rem;
+					line-height: 3rem;
+					@include abstracts.animation(heading, 1s, ease-in, -8rem, 0);
+				}
+
+				&_p {
+					margin-top: 1rem;
+					color: abstracts.$white;
+					font-size: 1.5rem;
+					@include abstracts.animation(sub_heading, 1s, ease-out, -10rem, 0);
+				}
+
+				&_link {
+					margin-top: 1rem;
+					@include abstracts.animation(headerButton, 1s, ease-out, 10rem, 0);
+				}
+			}
+		}
+	}
+}
