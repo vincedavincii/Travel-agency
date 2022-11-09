@@ -1,9 +1,11 @@
 import React, {useContext, useState} from "react";
+import DestinationContext from "../context/DestinationContext";
+import DestinationList from "./DestinationList";
 
 const Destinations = () => {
-	// const {
-	// 	destinationsData: {destinations},
-	// } = useContext(DestinationsContext);
+	const {
+		destinationData: {destinations},
+	} = useContext(DestinationContext);
 
 	const [state] = useState({
 		heading:
@@ -26,12 +28,12 @@ const Destinations = () => {
 				</div>
 				<div className="destinations_block">
 					<div className="row ml-minus-15 mr-minus-15">
-						{/* {destinations.map((destination) => (
-							<DestinationsList
+						{destinations.map((destination) => (
+							<DestinationList
 								destination={destination}
 								key={destination.id}
 							/>
-						))} */}
+						))}
 					</div>
 				</div>
 			</div>

@@ -3,7 +3,7 @@ import NavContext from "../context/NavContext";
 import NAV_TOGGLE from "../context/types/NavTypes";
 const Toggle = () => {
 	const {state, dispatch} = useContext(NavContext);
-	console.log(state);
+
 	return (
 		<div
 			className={state ? "toggle-close" : "toggle-open"}

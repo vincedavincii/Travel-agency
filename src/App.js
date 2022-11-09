@@ -7,27 +7,30 @@ import AboutPage from "./pages/AboutPage";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import {HelmetProvider} from "react-helmet-async";
+import DestinationProvider from "./context/providers/DestinationProvider";
 
 function App() {
 	return (
 		<BrowserRouter>
 			<ModalProvider>
 				<NavProvider>
-					<HelmetProvider>
-						<Toggle />
-						<Nav />
-						<Routes>
-							<Route
-								path="/"
-								element={<HomePage />}
-							/>
-							<Route
-								path="/about"
-								element={<AboutPage />}
-							/>
-							<Route element={<ErrorPage />} />
-						</Routes>
-					</HelmetProvider>
+					<DestinationProvider>
+						<HelmetProvider>
+							<Toggle />
+							<Nav />
+							<Routes>
+								<Route
+									path="/"
+									element={<HomePage />}
+								/>
+								<Route
+									path="/about"
+									element={<AboutPage />}
+								/>
+								<Route element={<ErrorPage />} />
+							</Routes>
+						</HelmetProvider>
+					</DestinationProvider>
 				</NavProvider>
 			</ModalProvider>
 		</BrowserRouter>
