@@ -8,6 +8,7 @@ import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import {HelmetProvider} from "react-helmet-async";
 import DestinationProvider from "./context/providers/DestinationProvider";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
 	return (
@@ -26,6 +27,10 @@ function App() {
 								<Route
 									path="/about"
 									element={<AboutPage />}
+								/>
+								<Route
+									path="/details/:id"
+									element={<DetailsPage />}
 								/>
 								<Route element={<ErrorPage />} />
 							</Routes>

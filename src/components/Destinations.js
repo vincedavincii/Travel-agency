@@ -6,6 +6,7 @@ const Destinations = () => {
 	const {
 		destinationData: {destinations},
 	} = useContext(DestinationContext);
+	console.log(destinations);
 
 	const [state] = useState({
 		heading:
