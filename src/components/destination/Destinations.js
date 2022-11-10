@@ -1,12 +1,11 @@
 import React, {useContext, useState} from "react";
-import DestinationContext from "../context/DestinationContext";
+import DestinationContext from "../../context/DestinationContext";
 import DestinationList from "./DestinationList";
 
 const Destinations = () => {
 	const {
 		destinationData: {destinations},
 	} = useContext(DestinationContext);
-	console.log(destinations);
 
 	const [state] = useState({
 		heading:

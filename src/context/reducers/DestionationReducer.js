@@ -11,14 +11,14 @@ const DestionationReducer = (state, action) => {
 			...state,
 			details: destination,
 		};
-		// } else if (type === CITIES) {
-		// 	const filtered = state.cities.filter(
-		// 		(city) => parseInt(city.destinationId) === parseInt(payload)
-		// 	);
-		// 	return {
-		// 		...state,
-		// 		filteredCities: filtered,
-		// 	};
+	} else if (type === CITIES) {
+		const filtered = state.cities.filter(
+			(city) => parseInt(city.destinationId) === parseInt(payload)
+		);
+		return {
+			...state,
+			selectedCity: filtered,
+		};
 	} else {
 		return state;
 	}

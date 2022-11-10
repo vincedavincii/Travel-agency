@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import {HelmetProvider} from "react-helmet-async";
 import DestinationProvider from "./context/providers/DestinationProvider";
 import DetailsPage from "./pages/DetailsPage";
+import SharedProvider from "./context/providers/SharedProvider";
 
 function App() {
 	return (
@@ -16,25 +17,27 @@ function App() {
 			<ModalProvider>
 				<NavProvider>
 					<DestinationProvider>
-						<HelmetProvider>
-							<Toggle />
-							<Nav />
-							<Routes>
-								<Route
-									path="/"
-									element={<HomePage />}
-								/>
-								<Route
-									path="/about"
-									element={<AboutPage />}
-								/>
-								<Route
-									path="/details/:id"
-									element={<DetailsPage />}
-								/>
-								<Route element={<ErrorPage />} />
-							</Routes>
-						</HelmetProvider>
+						<SharedProvider>
+							<HelmetProvider>
+								<Toggle />
+								<Nav />
+								<Routes>
+									<Route
+										path="/"
+										element={<HomePage />}
+									/>
+									<Route
+										path="/about"
+										element={<AboutPage />}
+									/>
+									<Route
+										path="/details/:id"
+										element={<DetailsPage />}
+									/>
+									<Route element={<ErrorPage />} />
+								</Routes>
+							</HelmetProvider>
+						</SharedProvider>
 					</DestinationProvider>
 				</NavProvider>
 			</ModalProvider>

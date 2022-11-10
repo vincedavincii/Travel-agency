@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
 import Header from "../components/Header";
@@ -6,7 +6,9 @@ import Modal from "../components/Modal";
 import ModalContext from "../context/ModalContext";
 import {OPEN_MODAL} from "../context/types/ModalTypes";
 import {Helmet} from "react-helmet-async";
-import Destinations from "../components/Destinations";
+import Destinations from "../components/destination/Destinations";
+import Services from "../components/services/Services";
+import Reviews from "../components/reviews/Reviews";
 
 const HomePage = () => {
 	const {dispatch} = useContext(ModalContext);
@@ -18,6 +20,10 @@ const HomePage = () => {
 		paragraph:
 			"The world is a book and those who do not travel read only one page. Lets help you make great memories",
 	});
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<>
 			<Helmet>
@@ -52,6 +58,8 @@ const HomePage = () => {
 			</Modal>
 
 			<Destinations />
+			<Services />
+			<Reviews />
 		</>
 	);
 };

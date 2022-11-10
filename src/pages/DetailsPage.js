@@ -4,16 +4,18 @@ import {Helmet} from "react-helmet-async";
 import DestinationContext from "../context/DestinationContext";
 import {CITIES, DETAILS} from "../context/types/DestinationTypes";
 import Header from "../components/Header";
+import DestinationInfo from "../components/destination/DestinationInfo";
+import City from "../components/city/City";
 
 const DetailsPage = () => {
 	const {destinationData, dispatch} = useContext(DestinationContext);
-	const {details, filteredCities} = destinationData;
+	const {details, selectedCity} = destinationData;
 	const {id} = useParams();
 
 	useEffect(() => {
 		dispatch({type: DETAILS, payload: id});
 		dispatch({type: CITIES, payload: id});
-		// window.scrollTo(0, 0);
+		window.scrollTo(0, 0);
 	}, [id]);
 	return (
 		<>
@@ -24,9 +26,12 @@ const DetailsPage = () => {
 				heading={details.name}
 				image={details.bigImage}
 			></Header>
-			{/* <DestinationInfo details={details} />
-	<Cities cities={filteredCities} name={details.name} />
-	<Footer /> */}
+			<DestinationInfo details={details} />
+			<City
+				cities={selectedCity}
+				name={details.name}
+			/>
+			{/* <Footer /> */}
 		</>
 	);
 };
