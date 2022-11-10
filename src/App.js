@@ -10,6 +10,8 @@ import {HelmetProvider} from "react-helmet-async";
 import DestinationProvider from "./context/providers/DestinationProvider";
 import DetailsPage from "./pages/DetailsPage";
 import SharedProvider from "./context/providers/SharedProvider";
+import Gallery from "./components/gallery/Gallery";
+import GalleryProvider from "./context/providers/GalleryProvider";
 
 function App() {
 	return (
@@ -18,25 +20,27 @@ function App() {
 				<NavProvider>
 					<DestinationProvider>
 						<SharedProvider>
-							<HelmetProvider>
-								<Toggle />
-								<Nav />
-								<Routes>
-									<Route
-										path="/"
-										element={<HomePage />}
-									/>
-									<Route
-										path="/about"
-										element={<AboutPage />}
-									/>
-									<Route
-										path="/details/:id"
-										element={<DetailsPage />}
-									/>
-									<Route element={<ErrorPage />} />
-								</Routes>
-							</HelmetProvider>
+							<GalleryProvider>
+								<HelmetProvider>
+									<Toggle />
+									<Nav />
+									<Routes>
+										<Route
+											path="/"
+											element={<HomePage />}
+										/>
+										<Route
+											path="/about"
+											element={<AboutPage />}
+										/>
+										<Route
+											path="/details/:id"
+											element={<DetailsPage />}
+										/>
+										<Route element={<ErrorPage />} />
+									</Routes>
+								</HelmetProvider>
+							</GalleryProvider>
 						</SharedProvider>
 					</DestinationProvider>
 				</NavProvider>

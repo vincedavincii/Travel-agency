@@ -9,6 +9,8 @@ import {Helmet} from "react-helmet-async";
 import Destinations from "../components/destination/Destinations";
 import Services from "../components/services/Services";
 import Reviews from "../components/reviews/Reviews";
+import Gallery from "../components/gallery/Gallery";
+import Footer from "../components/footer/Footer";
 
 const HomePage = () => {
 	const {dispatch} = useContext(ModalContext);
@@ -60,6 +62,8 @@ const HomePage = () => {
 			<Destinations />
 			<Services />
 			<Reviews />
+			<Gallery />
+			<Footer />
 		</>
 	);
 };

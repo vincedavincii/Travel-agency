@@ -1,4 +1,3 @@
-import React from "react";
 import {CITIES, DETAILS} from "../types/DestinationTypes";
 
 const DestionationReducer = (state, action) => {
