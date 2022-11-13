@@ -1,11 +1,17 @@
 @use "../abstracts" as *;
 .destinationInfo {
 	margin: 8rem 0;
+	@include responsive(xsmall) {
+		margin: 4rem 0;
+	}
 
 	&__p {
 		font-size: 1.6rem;
 		color: $silverDark;
 		line-height: 2.8rem;
+		@include responsive(medium) {
+			margin-bottom: 2rem;
+		}
 	}
 	&__details {
 		@include align(flex, space-between, center, null);

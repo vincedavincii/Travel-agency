@@ -1,4 +1,4 @@
-@use "../abstracts";
+@use "../abstracts" as *;
 
 .header {
 	width: 100%;
@@ -7,12 +7,31 @@
 	clip-path: polygon(50% 0%, 100% 0, 100% 91%, 0 100%, 0 99%, 0% 60%, 0 0);
 
 	&_logo {
-		@include abstracts.position(absolute, 3rem, null, 3rem, null, null, null);
+		@include position(absolute, 3rem, null, 0, null, null, null);
 		z-index: 1;
+		@include responsive(large) {
+			left: 5rem;
+		}
+		@include responsive(medium) {
+			left: 4rem;
+		}
+		@include responsive(small) {
+			left: 2rem;
+		}
+		@include responsive(xsmall) {
+			left: 1.5rem;
+		}
 		img {
 			width: 8rem;
 			height: auto;
 			object-fit: cover;
+
+			@include responsive(small) {
+				width: 13rem;
+			}
+			@include responsive(xsmall) {
+				width: 10rem;
+			}
 		}
 	}
 
@@ -32,36 +51,50 @@
 				}
 			}
 		}
-		@include abstracts.position(absolute, 0, null, 0, null, 100%, 100%);
+		@include position(absolute, 0, null, 0, null, 100%, 100%);
 		overflow: hidden;
 	}
 
 	&_contents {
-		@include abstracts.position(absolute, 0, null, 0, null, 100%, 100%);
+		@include position(absolute, 0, null, 0, null, 100%, 100%);
 		background-color: rgba(0, 0, 0, 0.4);
 
 		&_text {
-			@include abstracts.align(flex, center, center, 100vh);
+			@include align(flex, center, center, 100vh);
 			&_child {
 				&_h1 {
-					color: abstracts.$white;
+					color: $white;
 					text-transform: uppercase;
 					font-weight: 900;
 					font-size: 3rem;
 					line-height: 3rem;
-					@include abstracts.animation(heading, 1s, ease-in, -8rem, 0);
+					@include animation(heading, 1s, ease-in, -8rem, 0);
+					@include responsive(medium) {
+						font-size: 4rem;
+					}
+					@include responsive(small) {
+						font-size: 3rem;
+					}
+					@include responsive(xsmall) {
+						font-size: 2rem;
+					}
 				}
 
 				&_p {
 					margin-top: 1rem;
-					color: abstracts.$white;
+					color: $white;
 					font-size: 1.5rem;
-					@include abstracts.animation(sub_heading, 1s, ease-out, -10rem, 0);
+					@include animation(sub_heading, 1s, ease-out, -10rem, 0);
+					@include responsive(small) {
+						margin-top: 0.5rem;
+						font-size: 1.4rem;
+						line-height: 2rem;
+					}
 				}
 
 				&_link {
 					margin-top: 1rem;
-					@include abstracts.animation(headerButton, 1s, ease-out, 10rem, 0);
+					@include animation(headerButton, 1s, ease-out, 10rem, 0);
 				}
 			}
 		}

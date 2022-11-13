@@ -6,6 +6,7 @@ import {CITIES, DETAILS} from "../context/types/DestinationTypes";
 import Header from "../components/Header";
 import DestinationInfo from "../components/destination/DestinationInfo";
 import City from "../components/city/City";
+import Footer from "../components/footer/Footer";
 
 const DetailsPage = () => {
 	const {destinationData, dispatch} = useContext(DestinationContext);
@@ -31,7 +32,7 @@ const DetailsPage = () => {
 				cities={selectedCity}
 				name={details.name}
 			/>
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	);
 };

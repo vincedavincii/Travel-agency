@@ -9,9 +9,9 @@ const Header = ({heading, paragraph, children, image}) => {
 	});
 	return (
 		<div className="header">
-			<div className=" pr">
+			<div className="container pr">
 				<div className="header_logo">
-					<img
+					<LazyLoadImage
 						src={state.logo}
 						alt="logo"
 					/>
@@ -39,6 +39,7 @@ const Header = ({heading, paragraph, children, image}) => {
 					<div className="header_contents_text">
 						<div className="header_contents_text_child">
 							<h1 className="header_contents_text_child_h1">{heading}</h1>
+
 							<p className="header_contents_text_child_p">{paragraph}</p>
 
 							<div className="header_contents_text_child_link">{children}</div>

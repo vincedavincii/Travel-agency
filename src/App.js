@@ -12,6 +12,7 @@ import DetailsPage from "./pages/DetailsPage";
 import SharedProvider from "./context/providers/SharedProvider";
 import Gallery from "./components/gallery/Gallery";
 import GalleryProvider from "./context/providers/GalleryProvider";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
 	return (
@@ -32,6 +33,10 @@ function App() {
 										<Route
 											path="/about"
 											element={<AboutPage />}
+										/>
+										<Route
+											path="/contact"
+											element={<ContactPage />}
 										/>
 										<Route
 											path="/details/:id"
